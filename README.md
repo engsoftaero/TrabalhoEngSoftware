@@ -1,5 +1,7 @@
 # Trabalho de Engenharia de Software
-Implementar sprints 1 e 2  do sistema Q&amp;A simulando uma equipe de software real, seguindo processo XP-like. Incluindo requisitos não-funcionais e qualidade interna do código.
+
+## Objetivos do trabalho
+Implementar sprints 1 e 2  do sistema Q&A simulando uma equipe de software real, seguindo processo XP-like. Incluindo requisitos não-funcionais e qualidade interna do código.
 
 ## Membros do grupo:
 Agnes Braune Guedes  
