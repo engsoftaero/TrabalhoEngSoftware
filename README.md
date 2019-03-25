@@ -15,7 +15,7 @@ Ronaldo Lucas Garcia Chaves
 <p>•	Deploy: PythonAnywhere;</p>
 <p>•	Sistema de controle de versões: GitHub;</p>
 <p>•	Sistema de controle de projetos: 
-<a href="https://trello.com/b/DQ5oxdZd/trabalho-de-eng-de-software" target="_blank">Trello</a> ;</p>
+<a href="https://trello.com/b/DQ5oxdZd/trabalho-de-eng-de-software" target="_blank">Trello</a>;</p>
 
 
 
