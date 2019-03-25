@@ -14,6 +14,8 @@ Ronaldo Lucas Garcia Chaves
 <p>•	Fremework: Django;</p>
 <p>•	Deploy: PythonAnywhere;</p>
 <p>•	Sistema de controle de versões: GitHub;</p>
-<p>•	Sistema de controle de projetos: [Trello](https://trello.com/b/DQ5oxdZd/trabalho-de-eng-de-software);</p>
+<p>•	Sistema de controle de projetos: <a href="https://trello.com/b/DQ5oxdZd/trabalho-de-eng-de-software">Trello</a>;</p>
+
+
 
 
