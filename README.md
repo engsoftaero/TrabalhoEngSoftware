@@ -10,7 +10,7 @@ Nickolas Victor Lima Lins Leal
 Ronaldo Lucas Garcia Chaves  
 
 ## Tecnologia escolhida
-<p>•	BD MySQL;</p>
+<p>•	BD SQL Server;</p>
 <p>•	Fremework: ASP .NET;</p>
 <p>•	Deploy: Azure;</p>
 <p>•	Sistema de controle de versões: GitHub;</p>
