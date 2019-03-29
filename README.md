@@ -10,9 +10,9 @@ Nickolas Victor Lima Lins Leal
 Ronaldo Lucas Garcia Chaves  
 
 ## Tecnologia escolhida
-<p>•	BD;</p>
-<p>•	Fremework: Django;</p>
-<p>•	Deploy: PythonAnywhere;</p>
+<p>•	BD MySQL;</p>
+<p>•	Fremework: ASP .NET;</p>
+<p>•	Deploy: IIS;</p>
 <p>•	Sistema de controle de versões: GitHub;</p>
 <p>•	Sistema de controle de projetos: 
 <a href="https://trello.com/b/DQ5oxdZd/trabalho-de-eng-de-software" target="_blank">Trello</a>;</p>
