@@ -12,7 +12,7 @@ Ronaldo Lucas Garcia Chaves
 ## Tecnologia escolhida
 <p>•	BD SQL Server;</p>
 <p>•	Fremework: ASP .NET;</p>
-<p>•	Deploy: Azure;</p>
+<p>•	Deploy: <a href="http://engsoftwareforum.azurewebsites.net"target="_blank">Azure</a>;</p>
 <p>•	Sistema de controle de versões: GitHub;</p>
 <p>•	Sistema de controle de projetos: 
 <a href="https://trello.com/b/DQ5oxdZd/trabalho-de-eng-de-software" target="_blank">Trello</a>;</p>
