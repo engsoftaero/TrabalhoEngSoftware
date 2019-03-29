@@ -21,6 +21,7 @@ namespace EngSoftwareForum
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            //Alteration
         }
 
         public IConfiguration Configuration { get; }
