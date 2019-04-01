@@ -1,23 +1,24 @@
-﻿@model Questions
-@{ 
-    ViewData["Title"] = "Create";
+﻿@model EngSoftwareForum.Models.Questions
+
+@{
+    ViewData["Title"] = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <br />
-<h2 class="text-info">Create Question</h2>
+<h2 class="text-info">Delete Question</h2>
 <br />
 
-<form method="post" asp-action="Create">
+<form method="post" asp-action="Delete">
     <div class="border backgroudWhite">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group row">
             <div class="col-2">
                 <label asp-for="Title" class="col-form-label"></label>
 
             </div>
             <div class="formulario">
-                <input asp-for="Title" class="form-control" />
+                <input asp-for="Title" readonly class="form-control" />
             </div>
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
@@ -29,13 +30,13 @@
 
             </div>
             <div class="formulario">
-                <textarea rows="10" cols="120" maxlength="1500" asp-for="Question"></textarea>
+                <textarea rows="10" cols="120" maxlength="1500" readonly asp-for="Question"></textarea>
             </div>
             <span asp-validation-for="Question" class="text-danger"></span>
         </div>
         <div class="form-group row">
             <div class="col-6 offset-4">
-                <partial name="_CreateAndBacktoListButton">
+                <partial name="_DeleteAndBackToListButton" model="Model.Id" />
             </div>
 
         </div>

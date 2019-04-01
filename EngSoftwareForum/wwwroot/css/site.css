@@ -86,7 +86,7 @@ body {
     /* Para certificar-se que todos os campos de texto têm as mesmas configurações de fonte. Por padrão, textareas ter uma fonte monospace*/
     font: 1em sans-serif;
     /* Para dar o mesmo tamanho a todos os campo de texto */
-    width: 300px;
+    width: 900px;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     /* Para harmonizar o look & feel das bordas nos campos de texto*/
