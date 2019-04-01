@@ -8,6 +8,7 @@ using EngSoftwareForum.Models;
 
 namespace EngSoftwareForum.Controllers
 {
+    [Area("Customer")]
     public class HomeController : Controller
     {
         public IActionResult Index()
