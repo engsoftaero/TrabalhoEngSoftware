@@ -73,15 +73,8 @@
                         <tr>
                             <td>
                                 @Html.Raw(mostra3)
-                            </td>
 
-                            <td>
-                                <partial name="_TableButtonsPartialReplies" model="ReplyID" />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
+                                <br /><br />
                                 <div class="btn-group" role="group">
                                     <a class="btn btn-success text-white" asp-action="" asp-route-Id="@Model">
                                         <i class="fas fa-arrow-circle-up"></i>
@@ -93,9 +86,14 @@
                                         <i class="fas fa-arrow-circle-down"></i>
                                     </a>
                                 </div>
+
+
+                            </td>
+
+                            <td>
+                                <partial name="_TableButtonsPartialReplies" model="ReplyID" />
                             </td>
                         </tr>
-
                     }
                 }
 
