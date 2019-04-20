@@ -29,7 +29,7 @@
 
             </div>
             <div class="formulario">
-                <textarea rows="10" cols="98" style="resize:none" maxlength="1500" readonly asp-for="Questions.Question"></textarea>
+                <textarea id="msg" rows="10" cols="98" maxlength="1500" readonly asp-for="Questions.Question"></textarea>
             </div>
             <span asp-validation-for="Questions.Question" class="text-danger"></span>
         </div>

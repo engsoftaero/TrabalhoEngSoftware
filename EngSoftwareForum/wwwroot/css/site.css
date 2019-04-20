@@ -91,5 +91,12 @@ body {
     /*box-sizing: border-box;*/
     /* Para harmonizar o look & feel das bordas nos campos de texto*/
     border: 1px solid #999;
-    resize:horizontal;
+    resize: none;
+}
+
+#msg {
+    resize: none;
+    font: Courier;
+    width: 100%;
+    padding: 1.5%;
 }
