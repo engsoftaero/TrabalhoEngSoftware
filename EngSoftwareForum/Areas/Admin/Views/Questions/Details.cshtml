@@ -34,6 +34,21 @@
             <span asp-validation-for="Questions.Question" class="text-danger"></span>
         </div>
 
+
+        <div class="btn-group" role="group">
+            <a class="btn btn-success text-white" asp-action="" asp-route-Id="@Model">
+                <i class="fas fa-arrow-circle-up"></i>
+            </a>
+        </div>
+
+        <div class="btn-group" role="group">
+            <a class="btn btn-danger text-white" asp-action="" asp-route-Id="@Model">
+                <i class="fas fa-arrow-circle-down"></i>
+            </a>
+        </div>
+
+        <br ><br />
+
         <div>
             @{
                 var viewBagVariavel = ViewBag.Replies;
@@ -55,19 +70,38 @@
                         string mostra2 = mostra.Replace("\n", "<br/>");
                         string mostra3 = mostra2.Replace(" ", "&nbsp");
                         int ReplyID = viewBagVariavel[i].ReplyId;
-                <tr>
-                    <td>
-                        @Html.Raw(mostra3)
-                    <td>
+                        <tr>
+                            <td>
+                                @Html.Raw(mostra3)
+                            </td>
 
-                    <td>
-                        <partial name="_TableButtonsPartialReplies" model="ReplyID" />
-                    </td>
-                </tr>
+                            <td>
+                                <partial name="_TableButtonsPartialReplies" model="ReplyID" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-success text-white" asp-action="" asp-route-Id="@Model">
+                                        <i class="fas fa-arrow-circle-up"></i>
+                                    </a>
+                                </div>
+
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-danger text-white" asp-action="" asp-route-Id="@Model">
+                                        <i class="fas fa-arrow-circle-down"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+
                     }
                 }
-            </table>             
-             }
+
+            </table>
+
+            }
         </div>
 
 
