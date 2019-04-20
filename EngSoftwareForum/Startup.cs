@@ -38,7 +38,7 @@ namespace EngSoftwareForum
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("DBContext")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -72,6 +72,7 @@ namespace EngSoftwareForum
                 routes.MapRoute(
                     name: "areas",
                     template: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
+                   
             });
         }
     }

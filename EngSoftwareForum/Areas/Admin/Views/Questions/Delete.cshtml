@@ -18,7 +18,7 @@
 
             </div>
             <div class="formulario">
-                <input asp-for="Title" readonly class="form-control" />
+                <input asp-for="Title" rows="10" readonly class="form-control" />
             </div>
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
@@ -30,7 +30,7 @@
 
             </div>
             <div class="formulario">
-                <textarea rows="10" cols="120" maxlength="1500" readonly asp-for="Question"></textarea>
+                <textarea rows="10" cols="98" style="resize:none" maxlength="1500" readonly asp-for="Question"></textarea>
             </div>
             <span asp-validation-for="Question" class="text-danger"></span>
         </div>

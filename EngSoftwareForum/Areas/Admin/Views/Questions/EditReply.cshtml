@@ -1,0 +1,39 @@
+﻿@model EngSoftwareForum.Models.Replies
+
+@{
+    ViewData["Title"] = "EditReply";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<h2 class="text-info">Edit Reply</h2>
+<br />
+
+<form method="post" asp-action="EditReply">
+    <div class="border backgroudWhite">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="ReplyString" class="col-form-label"></label>
+            </div>
+            <div class="formulario">
+                <textarea rows="10" cols="98" maxlength="1500" asp-for="ReplyString"></textarea>
+            </div>
+            <span asp-validation-for="ReplyString" class="text-danger"></span>
+
+            <input asp-for="QuestionID" readonly class="form-control" />
+            <input asp-for="ReplyId" readonly class="form-control" />
+
+        </div>
+        <div class="form-group row">
+            <div class="col-6 offset-4">
+                <partial name="_EditAndBackToListButton" model="Model.ReplyId" />
+            </div>
+
+        </div>
+
+
+    </div>
+</form>
+

@@ -35,6 +35,22 @@ namespace EngSoftwareForum.Data.Migrations
                     b.ToTable("Questions");
                 });
 
+            modelBuilder.Entity("EngSoftwareForum.Models.Replies", b =>
+                {
+                    b.Property<int>("ReplyId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("QuestionID");
+
+                    b.Property<string>("ReplyString")
+                        .IsRequired();
+
+                    b.HasKey("ReplyId");
+
+                    b.ToTable("Replies");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
