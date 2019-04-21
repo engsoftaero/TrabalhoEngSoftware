@@ -15,5 +15,9 @@ namespace EngSoftwareForum.Data
         }
 
         public DbSet<Questions> Questions { get; set; }
-    }
+
+        public DbSet<Replies> Replies { get; set; }
+
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
+    } 
 }

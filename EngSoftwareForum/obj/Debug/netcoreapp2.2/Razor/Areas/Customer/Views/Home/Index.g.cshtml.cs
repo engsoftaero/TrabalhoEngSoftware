@@ -23,7 +23,7 @@ using EngSoftwareForum.Models;
 
 #line default
 #line hidden
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"85315a0c1d9cc3d177f307214b4a1762d9c41b59", @"/Areas/Customer/Views/Home/Index.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fde6a8603df0f1e0619b933f6e9917b0ef1c9827", @"/Areas/Customer/Views/Home/Index.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"14ce16048f9b7927b904861e09e38d7ba6f8d738", @"/Areas/Customer/Views/_ViewImports.cshtml")]
     public class Areas_Customer_Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
@@ -31,13 +31,13 @@ using EngSoftwareForum.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
 #line 1 "C:\Users\anafl\Documents\GitHub\TrabalhoEngSoftware\EngSoftwareForum\Areas\Customer\Views\Home\Index.cshtml"
-  
+
     ViewData["Title"] = "Forums";
 
 #line default
 #line hidden
-            BeginContext(42, 79, true);
-            WriteLiteral("\r\n<div class=\"text-center\">\r\n    <h1 class=\"display-4\">Bem vindo</h1>\r\n</div>\r\n");
+            BeginContext(42, 144, true);
+            WriteLiteral("\r\n<div class=\"text-center\">\r\n    <h1 class=\"display-4\">Para visualizar as perguntas: Clicar em \"Questions\" na barra de navegação.</h1>\r\n</div>\r\n");
             EndContext();
         }
         #pragma warning restore 1998

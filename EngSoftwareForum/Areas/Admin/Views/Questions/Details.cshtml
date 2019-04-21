@@ -1,4 +1,5 @@
-﻿@model EngSoftwareForum.Models.Questions
+﻿@model EngSoftwareForum.Models.CommonViewModel
+
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -12,29 +13,99 @@
     <div class="border backgroudWhite">
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="Title" class="col-form-label"></label>
+                <label asp-for="Questions.Title" class="col-form-label"></label>
 
             </div>
             <div class="formulario">
-                <input asp-for="Title" readonly class="form-control" />
+                <input asp-for="Questions.Title" readonly class="form-control" />
             </div>
-            <span asp-validation-for="Title" class="text-danger"></span>
+            <span asp-validation-for="Questions.Title" class="text-danger"></span>
         </div>
 
 
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="Question" class="col-form-label"></label>
+                <label asp-for="Questions.Question" class="col-form-label"></label>
 
             </div>
             <div class="formulario">
-                <textarea rows="10" cols="120" maxlength="1500" readonly asp-for="Question"></textarea>
+                <textarea id="msg" rows="10" cols="98" maxlength="1500" readonly asp-for="Questions.Question"></textarea>
             </div>
-            <span asp-validation-for="Question" class="text-danger"></span>
+            <span asp-validation-for="Questions.Question" class="text-danger"></span>
         </div>
+
+
+        <div class="btn-group" role="group">
+            <a class="btn btn-success text-white" asp-action="" asp-route-Id="@Model">
+                <i class="fas fa-arrow-circle-up"></i>
+            </a>
+        </div>
+
+        <div class="btn-group" role="group">
+            <a class="btn btn-danger text-white" asp-action="" asp-route-Id="@Model">
+                <i class="fas fa-arrow-circle-down"></i>
+            </a>
+        </div>
+
+        <br ><br />
+
+        <div>
+            @{
+                var viewBagVariavel = ViewBag.Replies;
+                string Replies = "Replies:";
+
+            <table class="table table-striped border">
+                <tr class="table-secondary">
+                    <th>
+                        @Html.DisplayNameFor(m => Replies)
+                    </th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                @for (int i = 0; i < viewBagVariavel.Count; i++)
+                {
+                    @if (viewBagVariavel[i].QuestionID == Model.Questions.Id)
+                    {
+                        string mostra = viewBagVariavel[i].ReplyString;
+                        string mostra2 = mostra.Replace("\n", "<br/>");
+                        string mostra3 = mostra2.Replace(" ", "&nbsp");
+                        int ReplyID = viewBagVariavel[i].ReplyId;
+                        <tr>
+                            <td>
+                                @Html.Raw(mostra3)
+
+                                <br /><br />
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-success text-white" asp-action="" asp-route-Id="@Model">
+                                        <i class="fas fa-arrow-circle-up"></i>
+                                    </a>
+                                </div>
+
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-danger text-white" asp-action="" asp-route-Id="@Model">
+                                        <i class="fas fa-arrow-circle-down"></i>
+                                    </a>
+                                </div>
+
+
+                            </td>
+
+                            <td>
+                                <partial name="_TableButtonsPartialReplies" model="ReplyID" />
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </table>
+
+            }
+        </div>
+
+
         <div class="form-group row">
             <div class="col-6 offset-4">
-                <partial name="_AnswerAndBackToListButton" model="Model.Id" />
+                <partial name="_AnswerAndBackToListButton" model="Model.Questions.Id" />
             </div>
 
         </div>

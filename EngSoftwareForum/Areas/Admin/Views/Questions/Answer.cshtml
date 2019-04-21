@@ -1,0 +1,56 @@
+﻿@model EngSoftwareForum.Models.CommonViewModel
+
+@{
+    ViewData["Title"] = "Answer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2 class="text-info">Reply question</h2>
+<br />
+
+<form method="post" asp-action="Answer">
+    <div class="border backgroudWhite">
+
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Questions.Id" class="col-form-label"></label>
+
+            </div>
+            <div class="formulario">
+                <input asp-for="Questions.Id" readonly class="form-control" />
+            </div>
+            
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="RepliesLOL.ReplyString" class="col-form-label"></label>
+
+            </div>
+            <div class="formulario">
+                <textarea id="msg" rows="10" cols="98" maxlength="1500" asp-for="RepliesLOL.ReplyString"></textarea>
+            </div>
+            <span asp-validation-for="RepliesLOL.ReplyString" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-6 offset-4">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="submit" class="btn btn-info form-control" value="Post reply" />
+                    </div>
+                    <div class="col-6">
+                        <a asp-action="Index" class="btn btn-success form-control">Back to list</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</form>

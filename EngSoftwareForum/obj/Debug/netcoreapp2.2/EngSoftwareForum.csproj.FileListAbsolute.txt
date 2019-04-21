@@ -158,3 +158,14 @@ C:\Users\anafl\Documents\GitHub\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\n
 C:\Users\anafl\Documents\GitHub\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\netcoreapp2.2\EngSoftwareForum.dll
 C:\Users\anafl\Documents\GitHub\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\netcoreapp2.2\EngSoftwareForum.pdb
 C:\Users\anafl\Documents\GitHub\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\netcoreapp2.2\EngSoftwareForum.csproj.CopyComplete
+C:\Users\anafl\Documents\GitHub\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\netcoreapp2.2\Razor\Areas\Admin\Views\Questions\Answer.g.cshtml.cs
+C:\Users\anafl\Documents\GitHub\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_TableButtonsPartialReplies.g.cshtml.cs
+C:\Users\anafl\Documents\GitHub\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\netcoreapp2.2\Razor\Areas\Admin\Views\Questions\EditReply.g.cshtml.cs
+C:\Users\anafl\Documents\GitHub\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\netcoreapp2.2\Razor\Areas\Admin\Views\Questions\DeleteReply.g.cshtml.cs
+C:\Users\anafl\Documents\GitHub\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\netcoreapp2.2\Razor\Areas\Admin\Views\User\Index.g.cshtml.cs
+
+C:\Users\nicko\Source\Repos\engsoftaero\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\netcoreapp2.2\Razor\Areas\Admin\Views\Questions\Answer.g.cshtml.cs
+C:\Users\nicko\Source\Repos\engsoftaero\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_TableButtonsPartialReplies.g.cshtml.cs
+C:\Users\nicko\Source\Repos\engsoftaero\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\netcoreapp2.2\Razor\Areas\Admin\Views\Questions\EditReply.g.cshtml.cs
+C:\Users\nicko\Source\Repos\engsoftaero\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\netcoreapp2.2\Razor\Areas\Admin\Views\Questions\DeleteReply.g.cshtml.cs
+C:\Users\nicko\Source\Repos\engsoftaero\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\netcoreapp2.2\Razor\Areas\Admin\Views\User\Index.g.cshtml.cs

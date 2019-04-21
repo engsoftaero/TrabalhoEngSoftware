@@ -84,11 +84,19 @@ body {
 
 .formulario {
     /* Para certificar-se que todos os campos de texto têm as mesmas configurações de fonte. Por padrão, textareas ter uma fonte monospace*/
-    font: 1em sans-serif;
+    font: Courier;
     /* Para dar o mesmo tamanho a todos os campo de texto */
     width: 900px;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    /*-moz-box-sizing: border-box;*/
+    /*box-sizing: border-box;*/
     /* Para harmonizar o look & feel das bordas nos campos de texto*/
     border: 1px solid #999;
+    resize: none;
+}
+
+#msg {
+    resize: none;
+    font: bold 12px Courier;
+    width: 100%;
+    padding: 1.5%;
 }
