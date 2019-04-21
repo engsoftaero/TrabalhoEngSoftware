@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using EngSoftwareForum.Data;
 using EngSoftwareForum.Models;
@@ -26,26 +27,37 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
         }
 
         //GET - CREATE
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
+            CommonViewModel model = new CommonViewModel();
+            model.Questions = new Questions();
+            model.ApplicationUser = new ApplicationUser();
+
+            //Procura dados do usuario no database
+            var claimsIdentity = (ClaimsIdentity)this.User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
+            model.Questions.UserID = model.ApplicationUser.Name;
+
+            return View(model);
         }
 
         //POST CREATE
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> Create(Questions question_par)
+        public async Task<IActionResult> Create(CommonViewModel question_par)
         {
+            
             if (ModelState.IsValid)
             {
                 //if valid
-                _db.Add(question_par);
+                _db.Add(question_par.Questions);
                 await _db.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
 
             }
-            return View(question_par);
+            return View(question_par.Questions);
         }
 
 
@@ -216,11 +228,19 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
 
 
         //GET - DETAILS - REPLY
-        //GET - CREATE
+        
         public async Task<IActionResult> Answer(int? id)
         {
             CommonViewModel model = new CommonViewModel();
             model.Questions = new Questions();
+            model.RepliesLOL = new Replies();
+            model.ApplicationUser = new ApplicationUser();
+
+            //Procura dados do usuario no database
+            var claimsIdentity = (ClaimsIdentity)this.User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
+            model.RepliesLOL.UserID = model.ApplicationUser.Name;
 
             if (id == null)
             {

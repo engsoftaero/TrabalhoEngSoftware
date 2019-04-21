@@ -1,4 +1,4 @@
-﻿@model Questions
+﻿@model CommonViewModel
 @{ 
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,26 +13,33 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="Title" class="col-form-label"></label>
+                <label asp-for="Questions.Title" class="col-form-label"></label>
 
             </div>
             <div class="formulario">
-                <input asp-for="Title" class="form-control" />
+                <input asp-for="Questions.Title" class="form-control" />
             </div>
-            <span asp-validation-for="Title" class="text-danger"></span>
+            <span asp-validation-for="Questions.Title" class="text-danger"></span>
         </div>
 
 
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="Question" class="col-form-label"></label>
+                <label asp-for="Questions.Question" class="col-form-label"></label>
 
             </div>
             <div class="formulario">
-                <textarea id="msg" rows="10" cols="98" maxlength="1500" asp-for="Question"></textarea>
+                <textarea id="msg" rows="10" cols="98" maxlength="1500" asp-for="Questions.Question"></textarea>
             </div>
-            <span asp-validation-for="Question" class="text-danger"></span>
+            <span asp-validation-for="Questions.Question" class="text-danger"></span>
         </div>
+
+
+        <div class="formulario">
+            <input asp-for="Questions.UserID" readonly class="form-control" />
+        </div>
+        <span asp-validation-for="Questions.UserID" class="text-danger"></span>
+
         <div class="form-group row">
             <div class="col-6 offset-4">
                 <partial name="_CreateAndBacktoListButton">

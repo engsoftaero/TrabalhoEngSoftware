@@ -1,14 +1,18 @@
-﻿@model int
+﻿@using EngSoftwareForum.Utility
+@model int
 
 <td style="width:150px">
     <div class="btn-group" role="group">
-        <a class="btn btn-primary text-white" asp-action="EditReply" asp-route-Id="@Model">
-            <i class="far fa-edit"></i>
-        </a>
+        @if (User.IsInRole(SD.ManagerUser) || User.IsInRole(SD.CustomerEndUser))
+        {
+            <a class="btn btn-primary text-white" asp-action="EditReply" asp-route-Id="@Model">
+                <i class="far fa-edit"></i>
+            </a>
 
-        <a class="btn btn-danger text-white" asp-action="DeleteReply" asp-route-Id="@Model">
-            <i class="far fa-trash-alt"></i>
-        </a>
+            <a class="btn btn-danger text-white" asp-action="DeleteReply" asp-route-Id="@Model">
+                <i class="far fa-trash-alt"></i>
+            </a>
+        }
 
 
     </div>

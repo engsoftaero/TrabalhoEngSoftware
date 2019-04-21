@@ -15,5 +15,7 @@ namespace EngSoftwareForum.Models
         public string ReplyString { get; set; }
 
         public int QuestionID { get; set; }
+
+        public string UserID { get; set; }
     }
 }
