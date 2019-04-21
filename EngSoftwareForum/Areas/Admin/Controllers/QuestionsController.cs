@@ -23,7 +23,18 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
         //GET ACTION METHOD
         public async Task<IActionResult> Index()
         {
-            return View(await _db.Questions.ToListAsync());
+            CommonViewModel model = new CommonViewModel();
+            model.ApplicationUser = new ApplicationUser();
+            model.CountQuestions = await _db.Questions.ToListAsync();
+
+            var claimsIdentity = (ClaimsIdentity)this.User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            if (claim != null)
+            {
+                model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
+            }
+
+            return View(model);
         }
 
         //GET - CREATE
@@ -199,6 +210,15 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
             CommonViewModel model = new CommonViewModel();
             model.Questions = new Questions();
             model.RepliesLOL = new Replies();
+            model.ApplicationUser = new ApplicationUser();
+
+            //Procura dados do usuario no database
+            var claimsIdentity = (ClaimsIdentity)this.User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            if (claim != null)
+            {
+                model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
+            }
 
             if (id == null)
             {

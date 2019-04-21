@@ -1,4 +1,5 @@
-﻿@model EngSoftwareForum.Models.CommonViewModel
+﻿@using EngSoftwareForum.Utility
+@model EngSoftwareForum.Models.CommonViewModel
 
 @{
     ViewData["Title"] = "Details";
@@ -113,9 +114,20 @@
 
                                 </td>
 
-                                <td>
-                                    <partial name="_TableButtonsPartialReplies" model="ReplyID" />
-                                </td>
+                                @{
+                                    if ((viewBagVariavel[i].UserID == Model.ApplicationUser.Name) || User.IsInRole(SD.ManagerUser))
+                                    {
+                                        <td>
+                                            <partial name="_TableButtonsPartialReplies" model="ReplyID" />
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                        <td></td>
+                                    }
+                                }
+
                             </tr>
                         }
                     }

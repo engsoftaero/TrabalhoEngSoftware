@@ -96,7 +96,7 @@ body {
 
 #msg {
     resize: none;
-    font: bold 12px Courier;
+    font: 18px Courier;
     width: 100%;
     padding: 1.5%;
 }

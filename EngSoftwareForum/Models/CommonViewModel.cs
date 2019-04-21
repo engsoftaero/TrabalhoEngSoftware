@@ -10,6 +10,7 @@ namespace EngSoftwareForum.Models
     public class CommonViewModel
     {
         public Questions Questions { get; set; }
+        public IEnumerable<Questions> CountQuestions;
         public Replies RepliesLOL { get; set; }
         public List<Replies> CountReply { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
