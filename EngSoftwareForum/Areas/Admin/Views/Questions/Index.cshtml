@@ -8,17 +8,15 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
-
-
-
-
 }
 
-<br /><br />
+<br />
+<h2 class="text-info">Questions List</h2>
+<br />
+
 <div class="border backgroudWhite">
     <div class="row">
-        @if (User.IsInRole(SD.ManagerUser)||User.IsInRole(SD.CustomerEndUser))
+        @if (User.IsInRole(SD.ManagerUser) || User.IsInRole(SD.CustomerEndUser))
         {
             <div class="col-6">
                 <h2 class="text-info"> Question List</h2>
@@ -42,31 +40,31 @@
                 </tr>
                 @foreach (var item in Model.CountQuestions)
                 {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(m => item.Title)
-                    </td>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => item.Title)
+                        </td>
 
-                    <td style="width:700px"></td>
-                    
-                   <td >
-                        @{
-                            if ((item.UserID == Model.ApplicationUser.Name) || User.IsInRole(SD.ManagerUser))
-                            {
-                                <partial name="_TableButtonsPartial" model="item.Id" />
+                        <td style="width:700px"></td>
+
+                        <td>
+                            @{
+                                if ((item.UserID == Model.ApplicationUser.Name) || User.IsInRole(SD.ManagerUser))
+                                {
+                                    <partial name="_TableButtonsPartial" model="item.Id" />
+                                }
+                                else
+                                {
+                                    <div class="btn-group" role="group">
+
+                                        <a class="btn btn-success text-white" asp-action="Details" asp-route-Id="@item.Id">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                    </div>
+                                }
                             }
-                            else
-                            {
-                                <div class="btn-group" role="group">
-                                   
-                                    <a class="btn btn-success text-white" asp-action="Details" asp-route-Id="@item.Id">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                </div>
-                            }
-                         }
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
                 }
             </table>
         }

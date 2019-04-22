@@ -63,11 +63,7 @@ namespace EngSoftwareForum.Areas.Identity.Pages.Account
             [Required]
             public string Name { get; set; }
 
-            public string StreetAddress { get; set; }
-            public string PhoneNumber { get; set; }
-            public string City { get; set; }
-            public string State { get; set; }
-            public string PostalCode { get; set; }
+            public string Description { get; set; }
 
         }
 
@@ -88,11 +84,7 @@ namespace EngSoftwareForum.Areas.Identity.Pages.Account
                     UserName = Input.Email,
                     Email = Input.Email,
                     Name = Input.Name,
-                    City = Input.City,
-                    StreetAddress = Input.StreetAddress,
-                    State=Input.State,
-                    PostalCode=Input.PostalCode,
-                    PhoneNumber=Input.PhoneNumber
+                    Description=Input.Description
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
