@@ -11,7 +11,8 @@ Ronaldo Lucas Garcia Chaves
 
 ## Tecnologia escolhida
 <p>•	BD;</p>
-<p>•	Fremework: ASP .NET MVC Core 2.2;</p>
+<p>•	Fremework: ASP .NET Core 2.2;</p>
+<p>•	Arquitetura: MVC;</p>
 <p>•	Deploy: <a href="https://engsoftwareqa.azurewebsites.net"target="_blank">Azure</a>;</p>
 <p>•	Sistema de controle de versões: GitHub;</p>
 <p>•	Sistema de controle de projetos: 
