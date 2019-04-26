@@ -17,6 +17,8 @@ namespace EngSoftwareForum.Models
         public string Question { get; set; }
 
         public string UserID { get; set; }
+
+        public string UserKey { get; set; }
     }
 
 }

@@ -49,6 +49,7 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
             model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
             model.Questions.UserID = model.ApplicationUser.Name;
+            model.Questions.UserKey = model.ApplicationUser.Id;
 
             return View(model);
         }
@@ -261,6 +262,7 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
             model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
             model.RepliesLOL.UserID = model.ApplicationUser.Name;
+            model.RepliesLOL.UserKey = model.ApplicationUser.Id; //adiciona a key do usuario na resposta
 
             if (id == null)
             {

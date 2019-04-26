@@ -27,9 +27,7 @@
                     <th>
                         @Html.DisplayNameFor(m => m.Email)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(m => m.PhoneNumber)
-                    </th>
+                    
                     <th></th>
                     <th></th>
                 </tr>
@@ -42,21 +40,25 @@
                     <td>
                         @Html.DisplayFor(m => item.Email)
                     </td>
-                    <td>
-                        @Html.DisplayFor(m => item.PhoneNumber)
-                    </td>
+
+                    <td style="width:300px"></td>
+
                     <td>
                         @if (item.LockoutEnd == null || item.LockoutEnd < DateTime.Now)
                         {
-                        <a class="btn btn-success text-white" asp-action="Lock" asp-route-id="@item.Id">
-                            <i class="fas fa-lock-open"></i>
-                        </a>
+                            <div class="alignright">
+                                <a class="btn btn-success text-white" asp-action="Lock" asp-route-id="@item.Id">
+                                    <i class="fas fa-lock-open"></i>
+                                </a>
+                            </div>
                         }
                         else
                         {
-                        <a class="btn btn-danger text-white" asp-action="UnLock" asp-route-id="@item.Id">
-                            <i class="fas fa-lock"></i>
-                        </a>
+                            <div class="alignright">
+                                <a class="btn btn-danger text-white" asp-action="UnLock" asp-route-id="@item.Id">
+                                    <i class="fas fa-lock"></i>
+                                </a>
+                            </div>
                         }
                     </td>
                 </tr>

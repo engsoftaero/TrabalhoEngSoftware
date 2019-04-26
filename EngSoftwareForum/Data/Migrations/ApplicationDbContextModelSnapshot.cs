@@ -32,6 +32,8 @@ namespace EngSoftwareForum.Data.Migrations
 
                     b.Property<string>("UserID");
 
+                    b.Property<string>("UserKey");
+
                     b.HasKey("Id");
 
                     b.ToTable("Questions");
@@ -49,6 +51,8 @@ namespace EngSoftwareForum.Data.Migrations
                         .IsRequired();
 
                     b.Property<string>("UserID");
+
+                    b.Property<string>("UserKey");
 
                     b.HasKey("ReplyId");
 
@@ -224,6 +228,8 @@ namespace EngSoftwareForum.Data.Migrations
             modelBuilder.Entity("EngSoftwareForum.Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<int>("AvatarSet");
 
                     b.Property<string>("Description");
 

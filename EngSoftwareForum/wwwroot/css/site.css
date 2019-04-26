@@ -94,6 +94,19 @@ body {
     resize: none;
 }
 
+.formularioHide {
+    /* Para certificar-se que todos os campos de texto têm as mesmas configurações de fonte. Por padrão, textareas ter uma fonte monospace*/
+    font: Courier;
+    /* Para dar o mesmo tamanho a todos os campo de texto */
+    width: 900px;
+    /*-moz-box-sizing: border-box;*/
+    /*box-sizing: border-box;*/
+    /* Para harmonizar o look & feel das bordas nos campos de texto*/
+    border: 1px solid #999;
+    resize: none;
+    display: none;
+}
+
 #msg {
     resize: none;
     font: 18px Courier;
@@ -106,4 +119,30 @@ body {
     resize: none;
     width: 100%;
     padding: 1.5%;
+}
+
+.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3px;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid #dbdbdb;
+}
+
+.alignleft {
+    float: left;
+    margin: 1px 4px 0 0;
+    padding: 3px;
+    background-color: #ffffff;
+    border: 1px solid #030303;
+}
+
+.alignright {
+    float: right;
+    margin: 1px 0 0 4px;
+    padding: 3px;
+    background-color: #ffffff;
+    border: 1px solid #dbdbdb;
 }

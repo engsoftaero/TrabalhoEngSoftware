@@ -1,9 +1,12 @@
 ﻿@using EngSoftwareForum.Utility
+@using System.IO
+@using Microsoft.AspNetCore.Hosting;
 @model EngSoftwareForum.Models.CommonViewModel
 
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
 <br />
@@ -12,36 +15,47 @@
 
 <form method="post" asp-action="Details">
     <div class="border backgroudWhite">
+        <b><i>Question Title: &nbsp;</i></b><br />
         <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="Questions.Title" class="col-form-label"></label>
-
-            </div>
             <div class="formulario">
                 <input asp-for="Questions.Title" readonly class="form-control" />
             </div>
             <span asp-validation-for="Questions.Title" class="text-danger"></span>
         </div>
 
-
-
         <div class="form-group row">
-            <div class="col-2">
-                Author:
-
-            </div>
-            <div class="formulario">
-                <input asp-for="Questions.UserID" readonly class="form-control" />
-            </div>
-            <span asp-validation-for="Questions.UserID" class="text-danger"></span>
+            <b><i>&nbsp; &nbsp; Asked by: &nbsp;</i></b>
+            @Html.Raw(Model.Questions.UserID)
         </div>
 
 
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="Questions.Question" class="col-form-label"></label>
+        @{
+            string user_pic1 = Model.Questions.UserKey + ".png"; //pega a imagem do usuario que postou a resposta
 
-            </div>
+            string path1 = "wwwroot\\Images\\" + user_pic1;
+
+            string wanted_path1 = System.AppDomain.CurrentDomain.BaseDirectory;
+            var array1 = wanted_path1.Split(new string[] { "bin" }, // lista de separadores complexos
+            StringSplitOptions.RemoveEmptyEntries);
+
+            wanted_path1 = array1[0] + path1;
+        }
+
+
+
+        @if (System.IO.File.Exists(wanted_path1))
+        {
+            <img src="~/Images/@user_pic1" width="100" height="100" class="alignleft" /><br /><br /><br /><br /><br />
+        }
+        else
+        {
+            <img src="~/Images/User_icon_BLACK-01.png" width="100" height="100" class="alignleft" /><br /><br /><br /><br /><br />
+        }
+
+
+
+        <b><i>Question: &nbsp;</i></b><br />
+        <div class="form-group row">
             <div class="formulario">
                 <textarea id="msg" rows="10" cols="98" maxlength="1500" readonly asp-for="Questions.Question"></textarea>
             </div>
@@ -88,7 +102,18 @@
                             string mostra3 = mostra2.Replace(" ", "&nbsp");
                             int ReplyID = viewBagVariavel[i].ReplyId;
 
-                            string nome = viewBagVariavel[i].UserID;
+
+                            string user_pic = viewBagVariavel[i].UserKey + ".png"; //pega a imagem do usuario que postou a resposta
+
+                            string path = "wwwroot\\Images\\" + user_pic;
+
+                            string wanted_path = System.AppDomain.CurrentDomain.BaseDirectory;
+                            var array = wanted_path.Split(new string[] { "bin" }, // lista de separadores complexos
+                            StringSplitOptions.RemoveEmptyEntries);
+
+                            wanted_path = array[0] + path;
+
+                            string nome = viewBagVariavel[i].UserID; //pega o nome do usuario que postou a resposta
 
                             <tr>
                                 <td>
@@ -98,7 +123,18 @@
                                     <b><i>Replied by:</i></b>
                                     @Html.Raw(nome)
 
-                                    <br /><br />
+
+                                    @if (System.IO.File.Exists(wanted_path))
+                                    {
+                                        <br /> <img src="~/Images/@user_pic" width="100" height="100" class="alignleft" /><br /><br /><br /><br />
+                                    }
+                                    else
+                                    {
+                                        <br /> <img src="~/Images/User_icon_BLACK-01.png" width="100" height="100" class="alignleft" /><br /><br /><br /><br />
+                                    }
+
+                                    <br />
+
                                     <div class="btn-group" role="group">
                                         <a class="btn btn-success text-white" asp-action="" asp-route-Id="@Model">
                                             <i class="fas fa-arrow-circle-up"></i>
@@ -110,6 +146,7 @@
                                             <i class="fas fa-arrow-circle-down"></i>
                                         </a>
                                     </div>
+
 
 
                                 </td>
