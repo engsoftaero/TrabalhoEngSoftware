@@ -112,16 +112,17 @@ namespace EngSoftwareForum.Areas.Identity.Pages.Account
                     if (role == SD.ManagerUser)
                     {
                         await _userManager.AddToRoleAsync(user, SD.ManagerUser);
+                        return RedirectToAction("Index", "User", new { area = "Admin" });
                     }
                     else
                     {
                         await _userManager.AddToRoleAsync(user, SD.CustomerEndUser);
-                        //await _signInManager.SignInAsync(user, isPersistent: false);
-                        //return LocalRedirect(returnUrl);
-                        return RedirectToAction("Index", "User", new { area = "Admin" });
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        return RedirectToAction("Index", "Avatar", new { area = "Admin" }); //direciona para mudar avatar
+                        //return RedirectToAction("Index", "User", new { area = "Admin" });
                     }
 
-                    return RedirectToAction("Index", "User", new { area = "Admin" });
+                    //return RedirectToAction("Index", "User", new { area = "Admin" });
 
                     //logger.LogInformation("User created a new account with password.");
 
