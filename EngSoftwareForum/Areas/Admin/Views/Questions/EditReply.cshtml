@@ -16,12 +16,36 @@
     <div class="border backgroudWhite">
         <b>Edit your answer:</b><br />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group row">
+        
 
-            <div class="formulario">
-                <textarea id="msg" rows="10" cols="98" maxlength="1500" asp-for="ReplyString"></textarea>
+            <label class="formulario">
+                <textarea id="msg" rows="20" cols="100" maxlength="3000" onkeyup="validaQuantidade(this, 3000, 'resul')" asp-for="ReplyString"></textarea>
+                <span asp-validation-for="ReplyString" class="text-danger"></span>
+            </label>
+            <br />
+            <div class="form-group row">
+                <div class="col-10">
+                    <i><b>Characters remaining:</b></i>
+                    <i><b id='resul'>3000</b></i>
+                    <br /><br />
+                </div>
             </div>
-            <span asp-validation-for="ReplyString" class="text-danger"></span>
+
+
+            <script type="text/javascript">
+
+            function validaQuantidade(campo, total, contador) {
+                if (campo.value.length > total) {
+                    campo.value = campo.value.substr(0, total);
+                }
+                document.getElementById(contador).innerHTML = parseInt(total) - parseInt(campo.value.length);
+            }
+
+            </script>
+
+
+
+
 
             <div class="formularioHide">
                 <input asp-for="QuestionID" readonly class="form-control" />
@@ -49,7 +73,7 @@
             </div>
 
 
-        </div>
+       
 
         <div class="form-group row">
             <div class="col-6 offset-4">

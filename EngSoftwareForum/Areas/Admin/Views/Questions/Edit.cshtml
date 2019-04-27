@@ -12,29 +12,57 @@
 
 <form method="post" asp-action="Edit">
     <div class="border backgroudWhite">
+
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="Title" class="col-form-label"></label>
-
-            </div>
-            <div class="formulario">
+                <b>Question title:</b>
+                
                 <input asp-for="Title" class="form-control" />
+
             </div>
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
 
 
+
+
+
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="Question" class="col-form-label"></label>
-
+                <b>Question:</b>
             </div>
-            <div class="formulario">
-                <textarea id="msg" rows="10" cols="98" maxlength="1500" asp-for="Question"></textarea>
-            </div>
-            <span asp-validation-for="Question" class="text-danger"></span>
         </div>
+
+        <label class="formulario">
+            <textarea id="msg" rows="20" cols="100" maxlength="3000" onkeyup="validaQuantidade(this, 3000, 'resul')" asp-for="Question"></textarea>
+            <span asp-validation-for="Question" class="text-danger"></span>
+        </label>
+        <br />
+        <div class="form-group row">
+            <div class="col-10">
+                <i><b>Characters remaining:</b></i>
+                <i><b id='resul'>3000</b></i>
+                <br /><br />
+            </div>
+        </div>
+
+
+        <script type="text/javascript">
+
+            function validaQuantidade(campo, total, contador) {
+                if (campo.value.length > total) {
+                    campo.value = campo.value.substr(0, total);
+                }
+                document.getElementById(contador).innerHTML = parseInt(total) - parseInt(campo.value.length);
+            }
+
+        </script>
+
+
+
+
+
         <div class="form-group row">
             <div class="col-6 offset-4">
                 <partial name="_EditAndBackToListButton" model="Model.Id" />

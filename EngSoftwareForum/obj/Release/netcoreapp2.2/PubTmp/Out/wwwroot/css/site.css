@@ -109,9 +109,10 @@ body {
 
 #msg {
     resize: none;
-    font: 18px Courier;
+    font: 15px Courier;
     width: 100%;
     padding: 1.5%;
+    data-ls-module: charCounter;
 }
 
 #desc {
@@ -119,6 +120,7 @@ body {
     resize: none;
     width: 100%;
     padding: 1.5%;
+
 }
 
 .aligncenter {
