@@ -1,15 +1,14 @@
 ﻿@using EngSoftwareForum.Utility
 @model int
 
-<div class="row">
-    @if (User.IsInRole(SD.ManagerUser) || User.IsInRole(SD.CustomerEndUser))
-    { 
-        <div class="col-6">
-            <a asp-action="Answer" asp-route-id="@Model" class="btn btn-info form-control"><i class="fas fa-plus"></i> &nbsp; Reply </a>
-        </div>
-    }
 
-    <div class="col-6">
-        <a asp-action="Index" class="btn btn-success form-control">Back to list</a>
-    </div>
-</div>
+    
+        @if (User.IsInRole(SD.ManagerUser) || User.IsInRole(SD.CustomerEndUser))
+        {
+            
+                <a asp-action="Answer" asp-route-id="@Model" class="btn btn-info form-control"><i class="fas fa-plus"></i> &nbsp; Reply this question </a>
+            
+        }
+
+            <br ><br />
+            

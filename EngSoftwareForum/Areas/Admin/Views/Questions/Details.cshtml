@@ -76,6 +76,13 @@
             <a class="btn btn-danger text-white" asp-action="" asp-route-Id="@Model">
                 <i class="fas fa-arrow-circle-down"></i>
             </a>
+
+        </div>
+
+        <br ><br />
+
+        <div class="alignright2">
+            <partial name="_AnswerAndBackToListButton" model="Model.Questions.Id" />
         </div>
 
         <br><br />
@@ -174,14 +181,12 @@
             }
         </div>
 
-
-        <div class="form-group row">
-            <div class="col-6 offset-4">
-                <partial name="_AnswerAndBackToListButton" model="Model.Questions.Id" />
-            </div>
-
+        <div class="alignright2">
+            <a asp-action="Index" class="btn btn-success form-control">Back to question list</a>
+            <br><br />
         </div>
 
+        <br ><br />
 
     </div>
 </form>
