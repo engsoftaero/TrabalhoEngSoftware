@@ -18,5 +18,8 @@ Ronaldo Lucas Garcia Chaves
 <p>•	Sistema de controle de projetos: 
 <a href="https://trello.com/b/DQ5oxdZd/trabalho-de-eng-de-software" target="_blank">Trello</a>;</p>
 
+## Burndown Chart Sprint 01
+![Burndown Chart Sprint 01](https://user-images.githubusercontent.com/48770285/56871586-7b1ed400-69f6-11e9-98b1-a4c92dd54c93.png)
+
 
 
