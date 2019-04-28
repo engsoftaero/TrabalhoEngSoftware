@@ -17,7 +17,7 @@
 
             </div>
             <div class="formulario">
-                <input asp-for="Questions.Title" class="form-control" />
+                <input asp-for="Questions.Title" maxlength="150" class="form-control" />
             </div>
             <span asp-validation-for="Questions.Title" class="text-danger"></span>
         </div>
@@ -52,14 +52,14 @@
         </div>
 
         <label class="formulario">
-            <textarea id="msg" rows="20" cols="100" maxlength="3000" onkeyup="validaQuantidade(this, 3000, 'resul')" asp-for="Questions.Question"></textarea>
+            <textarea id="msg" rows="20" cols="100" maxlength="30000" onkeyup="validaQuantidade(this, 30000, 'resul')" asp-for="Questions.Question"></textarea>
             <span asp-validation-for="Questions.Question" class="text-danger"></span>
         </label>
         <br />
         <div class="form-group row">
             <div class="col-10">
                 <i><b>Characters remaining:</b></i>
-                <i><b id='resul'>3000</b></i>
+                <i><b id='resul'>30000</b></i>
                 <br /><br />
             </div>
         </div>

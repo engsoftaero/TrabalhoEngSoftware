@@ -19,14 +19,14 @@
         
 
             <label class="formulario">
-                <textarea id="msg" rows="20" cols="100" maxlength="3000" onkeyup="validaQuantidade(this, 3000, 'resul')" asp-for="ReplyString"></textarea>
+                <textarea id="msg" rows="20" cols="100" maxlength="30000" onkeyup="validaQuantidade(this, 30000, 'resul')" asp-for="ReplyString"></textarea>
                 <span asp-validation-for="ReplyString" class="text-danger"></span>
             </label>
             <br />
             <div class="form-group row">
                 <div class="col-10">
                     <i><b>Characters remaining:</b></i>
-                    <i><b id='resul'>3000</b></i>
+                    <i><b id='resul'>30000</b></i>
                     <br /><br />
                 </div>
             </div>

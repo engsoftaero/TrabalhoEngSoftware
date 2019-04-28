@@ -26,14 +26,20 @@
 
         </div>
 
-        <b>Author:</b><br />
+
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group row">
+            <div class="col-2">
+                <b>Author:</b>
 
-            <div class="formulario">
                 <input asp-for="RepliesLOL.UserID" readonly class="form-control" />
-            </div>
 
+            </div>
+            <span asp-validation-for="RepliesLOL.UserID" class="text-danger"></span>
         </div>
+
+
 
 
         <div class="formularioHide">
@@ -48,14 +54,41 @@
         </div>
 
 
-        <b>Write down your answer:</b><br />
-        <div class="form-group row">
 
-            <div class="formulario">
-                <textarea id="msg" rows="20" cols="100" maxlength="3000" asp-for="RepliesLOL.ReplyString"></textarea>
+
+        <div class="form-group row">
+            <div class="col-3">
+                <b>Write down your answer:</b>
             </div>
-            <span asp-validation-for="RepliesLOL.ReplyString" class="text-danger"></span>
         </div>
+
+        <label class="formulario">
+            <textarea id="msg" rows="20" cols="100" maxlength="30000" onkeyup="validaQuantidade(this, 30000, 'resul')" asp-for="RepliesLOL.ReplyString"></textarea>
+            <span asp-validation-for="RepliesLOL.ReplyString" class="text-danger"></span>
+        </label>
+        <br />
+        <div class="form-group row">
+            <div class="col-10">
+                <i><b>Characters remaining:</b></i>
+                <i><b id='resul'>30000</b></i>
+                <br /><br />
+            </div>
+        </div>
+
+
+        <script type="text/javascript">
+
+            function validaQuantidade(campo, total, contador) {
+                if (campo.value.length > total) {
+                    campo.value = campo.value.substr(0, total);
+                }
+                document.getElementById(contador).innerHTML = parseInt(total) - parseInt(campo.value.length);
+            }
+
+        </script>
+
+
+
 
         <div class="form-group row">
             <div class="col-6 offset-4">

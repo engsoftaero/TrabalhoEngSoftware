@@ -124,13 +124,13 @@ body {
 }
 
 .aligncenter {
-    display: block;
+    
     margin-left: auto;
     margin-right: auto;
     padding: 3px;
     text-align: center;
     background-color: #ffffff;
-    border: 1px solid #dbdbdb;
+    border: 1px solid #030303;
 }
 
 .alignleft {
