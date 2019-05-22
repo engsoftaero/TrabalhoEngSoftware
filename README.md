@@ -13,10 +13,13 @@ Ronaldo Lucas Garcia Chaves
 <p>•	BD;</p>
 <p>•	Fremework: ASP .NET Core 2.2;</p>
 <p>•	Arquitetura: MVC;</p>
-<p>•	Deploy: <a href="https://engsoftwareqa.azurewebsites.net"target="_blank">Azure</a>;</p>
+<p>•	Deploy: <a href="https://engsoftforumqa.azurewebsites.net/"target="_blank">Azure</a>;</p>
 <p>•	Sistema de controle de versões: GitHub;</p>
 <p>•	Sistema de controle de projetos: 
 <a href="https://trello.com/b/DQ5oxdZd/trabalho-de-eng-de-software" target="_blank">Trello</a>;</p>
+
+## Burndown Chart Sprint 01
+![Burndown Chart Sprint 01](https://user-images.githubusercontent.com/48770285/56871586-7b1ed400-69f6-11e9-98b1-a4c92dd54c93.png)
 
 
 
