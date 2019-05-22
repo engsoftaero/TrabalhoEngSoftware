@@ -67,19 +67,59 @@
 
 
         <div class="btn-group" role="group">
-            <a class="btn btn-success text-white" asp-action="" asp-route-Id="@Model">
+            <a class="btn btn-success text-white" asp-action="UpvoteQuestion" asp-route-Id="@Model.Questions.Id">
                 <i class="fas fa-arrow-circle-up"></i>
             </a>
         </div>
 
+        @Html.Raw(Model.Questions.VoteGQ)
+
         <div class="btn-group" role="group">
-            <a class="btn btn-danger text-white" asp-action="" asp-route-Id="@Model">
+            <a class="btn btn-danger text-white" asp-action="DownvoteQuestion" asp-route-Id="@Model.Questions.Id">
                 <i class="fas fa-arrow-circle-down"></i>
             </a>
 
         </div>
 
-        <br ><br />
+
+        <br />
+
+        @try
+        {
+            if (Model.Questions.UsersDownVoteQ.Contains(Model.ApplicationUser.Name))
+            {
+                @Html.Raw("Your vote: Negative.")
+            }
+            else if (Model.Questions.UsersUpVoteQ.Contains(Model.ApplicationUser.Name))
+            {
+                @Html.Raw("Your vote: Positive.")
+            }
+            else
+            {
+                @Html.Raw("You didn't vote yet.")
+            }
+        }
+        catch
+        {
+            try
+            {
+                if (Model.Questions.UsersUpVoteQ.Contains(Model.ApplicationUser.Name))
+                {
+                    @Html.Raw("Your vote: Positive.")
+                }
+                else
+                {
+                    @Html.Raw("You didn't vote yet.")
+                }
+            }
+            catch
+            {
+                @Html.Raw("You didn't vote yet.")
+            }
+        }
+
+
+        <br><br />
 
         <div class="alignright2">
             <partial name="_AnswerAndBackToListButton" model="Model.Questions.Id" />
@@ -143,17 +183,54 @@
                                     <br />
 
                                     <div class="btn-group" role="group">
-                                        <a class="btn btn-success text-white" asp-action="" asp-route-Id="@Model">
+                                        <a class="btn btn-success text-white" asp-action="UpvoteReplies" asp-route-Id="@viewBagVariavel[i].ReplyId">
                                             <i class="fas fa-arrow-circle-up"></i>
                                         </a>
                                     </div>
 
+                                    @viewBagVariavel[i].VoteGR
+
                                     <div class="btn-group" role="group">
-                                        <a class="btn btn-danger text-white" asp-action="" asp-route-Id="@Model">
+                                        <a class="btn btn-danger text-white" asp-action="DownvoteReplies" asp-route-Id="@viewBagVariavel[i].ReplyId">
                                             <i class="fas fa-arrow-circle-down"></i>
                                         </a>
                                     </div>
 
+                                    <br />
+
+                                    @try
+                                    {
+                                        if (viewBagVariavel[i].UsersDownVoteR.Contains(Model.ApplicationUser.Name))
+                                        {
+                                            @Html.Raw("Your vote: Negative.")
+                                        }
+                                        else if (viewBagVariavel[i].UsersUpVoteR.Contains(Model.ApplicationUser.Name))
+                                        {
+                                            @Html.Raw("Your vote: Positive.")
+                                        }
+                                        else
+                                        {
+                                            @Html.Raw("You didn't vote yet.")
+                                        }
+                                    }
+                                    catch
+                                    {
+                                        try
+                                        {
+                                            if (viewBagVariavel[i].UsersUpVoteR.Contains(Model.ApplicationUser.Name))
+                                            {
+                                                @Html.Raw("Your vote: Positive.")
+                                            }
+                                            else
+                                            {
+                                                @Html.Raw("You didn't vote yet.")
+                                            }
+                                        }
+                                        catch
+                                        {
+                                            @Html.Raw("You didn't vote yet.")
+                                        }
+                                    }
 
 
                                 </td>
@@ -186,7 +263,7 @@
             <br><br />
         </div>
 
-        <br ><br />
+        <br><br />
 
     </div>
 </form>

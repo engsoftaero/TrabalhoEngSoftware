@@ -16,23 +16,23 @@
     <div class="border backgroudWhite">
         <b>Edit your answer:</b><br />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        
 
-            <label class="formulario">
-                <textarea id="msg" rows="20" cols="100" maxlength="30000" onkeyup="validaQuantidade(this, 30000, 'resul')" asp-for="ReplyString"></textarea>
-                <span asp-validation-for="ReplyString" class="text-danger"></span>
-            </label>
-            <br />
-            <div class="form-group row">
-                <div class="col-10">
-                    <i><b>Characters remaining:</b></i>
-                    <i><b id='resul'>30000</b></i>
-                    <br /><br />
-                </div>
+
+        <label class="formulario">
+            <textarea id="msg" rows="20" cols="100" maxlength="30000" onkeyup="validaQuantidade(this, 30000, 'resul')" asp-for="ReplyString"></textarea>
+            <span asp-validation-for="ReplyString" class="text-danger"></span>
+        </label>
+        <br />
+        <div class="form-group row">
+            <div class="col-10">
+                <i><b>Characters remaining:</b></i>
+                <i><b id='resul'></b></i>
+                <br /><br />
             </div>
+        </div>
 
 
-            <script type="text/javascript">
+        <script type="text/javascript">
 
             function validaQuantidade(campo, total, contador) {
                 if (campo.value.length > total) {
@@ -41,39 +41,37 @@
                 document.getElementById(contador).innerHTML = parseInt(total) - parseInt(campo.value.length);
             }
 
-            </script>
+        </script>
 
 
 
+        <div class="formularioHide">
+            <input asp-for="QuestionID" readonly class="form-control" />
+            <input asp-for="ReplyId" readonly class="form-control" />
+        </div>
 
 
-            <div class="formularioHide">
-                <input asp-for="QuestionID" readonly class="form-control" />
-                <input asp-for="ReplyId" readonly class="form-control" />
+        <div class="formularioHide">
+            <div class="col-2">
             </div>
-
-
             <div class="formularioHide">
-                <div class="col-2">
-                </div>
-                <div class="formularioHide">
-                    <input asp-for="UserID" readonly class="form-control" />
-                </div>
-                <span asp-validation-for="UserID" class="text-danger"></span>
+                <input asp-for="UserID" readonly class="form-control" />
             </div>
+            <span asp-validation-for="UserID" class="text-danger"></span>
+        </div>
 
 
+        <div class="formularioHide">
+            <div class="col-2">
+            </div>
             <div class="formularioHide">
-                <div class="col-2">
-                </div>
-                <div class="formularioHide">
-                    <input asp-for="UserKey" readonly class="form-control" />
-                </div>
-                <span asp-validation-for="UserKey" class="text-danger"></span>
+                <input asp-for="UserKey" readonly class="form-control" />
             </div>
+            <span asp-validation-for="UserKey" class="text-danger"></span>
+        </div>
 
 
-       
+
 
         <div class="form-group row">
             <div class="col-6 offset-4">

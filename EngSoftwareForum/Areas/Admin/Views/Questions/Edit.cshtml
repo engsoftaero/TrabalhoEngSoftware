@@ -17,14 +17,12 @@
         <div class="form-group row">
             <div class="col-2">
                 <b>Question title:</b>
-                
+
                 <input asp-for="Title" maxlength="150" class="form-control" />
 
             </div>
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
-
-
 
 
 
@@ -39,10 +37,10 @@
             <span asp-validation-for="Question" class="text-danger"></span>
         </label>
         <br />
-        <div class="form-group row">
+        <div class="form-group row" >
             <div class="col-10">
                 <i><b>Characters remaining:</b></i>
-                <i><b id='resul'>30000</b></i>
+                <i><b id='resul'></b></i>
                 <br /><br />
             </div>
         </div>
@@ -58,9 +56,6 @@
             }
 
         </script>
-
-
-
 
 
         <div class="form-group row">

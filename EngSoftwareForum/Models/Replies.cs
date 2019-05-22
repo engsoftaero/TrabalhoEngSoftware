@@ -19,5 +19,13 @@ namespace EngSoftwareForum.Models
         public string UserID { get; set; }
 
         public string UserKey { get; set; }
+
+        public int VoteGR { get; set; }
+
+        public string UsersUpVoteR { get; set; }
+
+        public string UsersDownVoteR { get; set; }
+
+        //public int VoteR { get; set; } //gammification
     }
 }
