@@ -1,0 +1,64 @@
+﻿@using EngSoftwareForum.Utility
+@using System.Security.Claims
+@using EngSoftwareForum.Models
+@using EngSoftwareForum.Data;
+
+@model CommonViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="border backgroudWhite">
+    <div class="row">
+        <div class="col-6">
+            <h2 class="text-info"> Tags List</h2>
+        </div>
+        
+    </div>
+    <br />
+    <div>
+        @if (Model.CountQuestions.Count() > 0)
+        {
+            var TagList = new List<string>();    
+                
+                @foreach (var item in Model.CountQuestions)
+                {
+                    try
+                    {
+                        var thisQuestionTags = item.Tags.Split("#");
+
+                        for (int i = 1; i < thisQuestionTags.Length; i++)
+                        {
+                            if (!TagList.Contains(thisQuestionTags[i]))
+                            {
+                                TagList.Add(thisQuestionTags[i]);
+                            }
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+                }
+                 
+                    int j = TagList.Count;
+
+                    for (int i = 0; i < j; i++)
+                    {
+                        <div class="btn-group" role="group">
+                            <a class="btn btn-dark text-white" asp-area="Admin" asp-controller="Tags" asp-action="Index" asp-route-tag="@TagList[i]" >
+                                <i class="fas fa-tag"></i>
+                               @TagList[i]
+                            </a>
+                        </div>
+                    }
+        }
+        else
+        {
+            <p>No questions available.</p>
+        }
+    </div>
+</div>

@@ -216,6 +216,8 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
             model.RepliesLOL = new Replies();
             model.ApplicationUser = new ApplicationUser();
 
+            model.RepliesCount = await _db.Replies.ToListAsync();
+
             //Procura dados do usuario no database
             var claimsIdentity = (ClaimsIdentity)this.User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);

@@ -27,6 +27,7 @@
     <div>
         @if (Model.CountQuestions.Count() > 0)
         {
+
             <table class="table table-striped border">
                 <tr class="table-secondary">
                     <th>
@@ -35,14 +36,15 @@
                     <th></th>
                     <th></th>
                 </tr>
-
-                @{
-                    var OrderedQuestions = Model.CountQuestions.OrderByDescending(c => c.VoteGQ).ToArray();
-                }
-
-
-                    @foreach (var item in OrderedQuestions)
+               
+                @foreach (var item in Model.CountQuestions)
+                {
+                    try
                     {
+                        if (item.Tags.Contains(Model.Tags.CurrentTag)) //verifica a tag atual
+                        {
+
+
                     <tr>
                         <td>
                             @Html.DisplayFor(m => item.Title)
@@ -50,7 +52,7 @@
 
                         <td style="width:300px"></td>
 
-                        
+
 
                         <td>
                             @{
@@ -64,7 +66,7 @@
                                 {
                                     <div class="alignright">
 
-                                        <a class="btn btn-success text-white" asp-action="Details" asp-route-Id="@item.Id">
+                                        <a class="btn btn-success text-white" asp-area="Admin" asp-controller="Questions" asp-action="Details" asp-route-Id="@item.Id">
                                             <i class="fas fa-eye"></i>
                                         </a>
                                     </div>
@@ -72,7 +74,13 @@
                             }
                         </td>
                     </tr>
-                }
+                                        }
+                                    }
+                                    catch
+                                    {
+
+                                    }
+                                }
             </table>
         }
         else

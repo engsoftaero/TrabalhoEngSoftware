@@ -84,3 +84,5 @@ C:\Users\nicko\Source\Repos\engsoftaero\TrabalhoEngSoftware\EngSoftwareForum\obj
 C:\Users\nicko\Source\Repos\engsoftaero\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\netcoreapp2.2\Razor\Areas\Admin\Views\Questions\DeleteReply.g.cshtml.cs
 C:\Users\nicko\Source\Repos\engsoftaero\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\netcoreapp2.2\Razor\Areas\Admin\Views\User\Index.g.cshtml.cs
 C:\Users\nicko\source\repos\engsoftaero\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\netcoreapp2.2\Razor\Areas\Admin\Views\Avatar\Index.g.cshtml.cs
+C:\Users\nicko\source\repos\engsoftaero\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\netcoreapp2.2\Razor\Areas\Admin\Views\Tags\Index.g.cshtml.cs
+C:\Users\nicko\source\repos\engsoftaero\TrabalhoEngSoftware\EngSoftwareForum\obj\Debug\netcoreapp2.2\Razor\Areas\Admin\Views\Tags\AllTags.g.cshtml.cs

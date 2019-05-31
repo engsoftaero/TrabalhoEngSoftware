@@ -12,7 +12,9 @@ namespace EngSoftwareForum.Models
         public Questions Questions { get; set; }
         public IEnumerable<Questions> CountQuestions;
         public Replies RepliesLOL { get; set; }
+        public IEnumerable<Replies> RepliesCount;
         public List<Replies> CountReply { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
+        public Tags Tags { get; set; }
     }
 }
