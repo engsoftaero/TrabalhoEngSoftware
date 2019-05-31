@@ -21,7 +21,7 @@
             </div>
             <span asp-validation-for="Questions.Title" class="text-danger"></span>
         </div>
-        
+
 
         <div class="form-group row">
             <div class="col-2">
@@ -77,13 +77,23 @@
         </script>
 
         <div class="form-group row">
+            <div class="col-2">
+                <b>Tags:</b>
+
+            </div>
+            <div class="formulario">
+                <input asp-for="Questions.Tags" maxlength="150" class="form-control" />
+            </div>
+            <span asp-validation-for="Questions.Tags" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
             <div class="col-6 offset-4">
                 <partial name="_CreateAndBacktoListButton">
             </div>
 
         </div>
 
-        
 
     </div>
 </form>

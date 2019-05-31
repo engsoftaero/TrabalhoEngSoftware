@@ -28,7 +28,9 @@ namespace EngSoftwareForum.Models
 
         public string UsersDownVoteQ { get; set; }
 
-        //public int VoteQ { get; set; } //gammification
+        public string Tags { get; set; }
+
+        
     }
 
 }
