@@ -21,5 +21,8 @@ Ronaldo Lucas Garcia Chaves
 ## Burndown Chart Sprint 01
 ![Burndown Chart Sprint 01](https://user-images.githubusercontent.com/48770285/56871586-7b1ed400-69f6-11e9-98b1-a4c92dd54c93.png)
 
+## Diagramas UML
+Diagrama de Pacotes
+![Diagrama de Pacotes](https://user-images.githubusercontent.com/48770285/58731415-03f9a880-83c5-11e9-9f33-86260b3ae6e9.jpeg)
 
 
