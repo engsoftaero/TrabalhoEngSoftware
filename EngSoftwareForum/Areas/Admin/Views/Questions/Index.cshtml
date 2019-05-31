@@ -32,12 +32,21 @@
                     <th>
                         @Html.DisplayNameFor(m => m.Questions.Title)
                     </th>
-                    <th></th>
-                    <th></th>
+                    <th>
+                        Votes
+                    </th>
+                    <th>
+                        Answers
+                    </th>
+                    <th>
+                        
+                    </th>
                 </tr>
 
+               
+
                 @{
-                    var OrderedQuestions = Model.CountQuestions.OrderByDescending(c => c.VoteGQ).ToArray();
+                    var OrderedQuestions = Model.CountQuestions.OrderByDescending(c => c.Id).ToArray();
                 }
 
 
@@ -48,8 +57,24 @@
                             @Html.DisplayFor(m => item.Title)
                         </td>
 
-                        <td style="width:300px"></td>
+                        <td>
+                            @Html.DisplayFor(m => item.VoteGQ)
+                        </td>
 
+                        
+                        @{  int vote_count=0;
+                            for (int i=0; i < Model.RepliesCount.Count(); i++)
+                            {
+                                if(Model.RepliesCount.ElementAt(i).QuestionID == item.Id)
+                                {
+                                    vote_count++;
+                                }
+                            }
+                        }
+
+                        <td>
+                            @Html.DisplayFor(m => vote_count)
+                        </td>
                         
 
                         <td>

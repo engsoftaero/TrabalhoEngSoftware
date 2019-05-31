@@ -28,6 +28,7 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
             CommonViewModel model = new CommonViewModel();
             model.ApplicationUser = new ApplicationUser();
             model.CountQuestions = await _db.Questions.ToListAsync();
+            model.RepliesCount = await _db.Replies.ToListAsync();
 
             var claimsIdentity = (ClaimsIdentity)this.User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);

@@ -16,12 +16,7 @@
         <div class="col-6">
             <h2 class="text-info"> Questions List</h2>
         </div>
-        @if (User.IsInRole(SD.ManagerUser) || User.IsInRole(SD.CustomerEndUser))
-        {
-            <div class="col-6 text-right">
-                <partial name="_CreateButtonPartial" />
-            </div>
-        }
+        
     </div>
     <br />
     <div>
@@ -33,11 +28,22 @@
                     <th>
                         @Html.DisplayNameFor(m => m.Questions.Title)
                     </th>
-                    <th></th>
-                    <th></th>
+                    <th>
+                        Votes
+                    </th>
+                    <th>
+                        Answers
+                    </th>
+                    <th>
+
+                    </th>
                 </tr>
+
+                 @{
+                    var OrderedQuestions = Model.CountQuestions.OrderByDescending(c => c.VoteGQ).ToArray();
+                 }
                
-                @foreach (var item in Model.CountQuestions)
+                @foreach (var item in OrderedQuestions)
                 {
                     try
                     {
@@ -50,7 +56,24 @@
                             @Html.DisplayFor(m => item.Title)
                         </td>
 
-                        <td style="width:300px"></td>
+                        <td>
+                            @Html.DisplayFor(m => item.VoteGQ)
+                        </td>
+
+                        
+                        @{  int vote_count=0;
+                            for (int i=0; i < Model.RepliesCount.Count(); i++)
+                            {
+                                if(Model.RepliesCount.ElementAt(i).QuestionID == item.Id)
+                                {
+                                    vote_count++;
+                                }
+                            }
+                        }
+
+                        <td>
+                            @Html.DisplayFor(m => vote_count)
+                        </td>
 
 
 
