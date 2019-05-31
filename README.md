@@ -26,4 +26,5 @@ Diagrama de Pacotes
 ![Diagrama de Pacotes](https://user-images.githubusercontent.com/48770285/58731415-03f9a880-83c5-11e9-9f33-86260b3ae6e9.jpeg)
 Diagrama de Classes
 ![Diagrama de classe UML](https://user-images.githubusercontent.com/48770285/58733676-8ab18400-83cb-11e9-8e23-338126029e0c.jpeg)
-
+Diagrama de Classes
+![Diagrama de Classes](https://user-images.githubusercontent.com/48770285/58734344-99009f80-83cd-11e9-88a7-d6b635d6a0a2.jpeg)
