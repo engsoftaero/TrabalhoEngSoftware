@@ -43,18 +43,20 @@
 
                     }
                 }
-                 
-                    int j = TagList.Count;
 
-                    for (int i = 0; i < j; i++)
-                    {
+                        int j = TagList.Count;
+
+                        TagList = TagList.OrderBy(o => o).ToList(); //ordena a lista de tags alfabeticamente
+
+                        for (int i = 0; i < j; i++)
+                        {
                         <div class="btn-group" role="group">
                             <a class="btn btn-dark text-white" asp-area="Admin" asp-controller="Tags" asp-action="Index" asp-route-tag="@TagList[i]" >
                                 <i class="fas fa-tag"></i>
                                @TagList[i]
                             </a>
                         </div>
-                    }
+                        }
         }
         else
         {
