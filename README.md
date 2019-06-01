@@ -1,4 +1,5 @@
 # Trabalho de Engenharia de Software
+[![Build Status](https://dev.azure.com/engsoftware2019/TrabalhoEngSoftware/_apis/build/status/engsoftforumqa%20-%20CI?branchName=master)](https://dev.azure.com/engsoftware2019/TrabalhoEngSoftware/_build/latest?definitionId=1&branchName=master)
 
 ## Objetivos do trabalho
 Implementar sprints 1 e 2  do sistema Q&A simulando uma equipe de software real, seguindo processo XP-like. Incluindo requisitos não-funcionais e qualidade interna do código.
