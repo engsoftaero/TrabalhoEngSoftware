@@ -30,12 +30,20 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
             model.CountQuestions = await _db.Questions.ToListAsync();
             model.RepliesCount = await _db.Replies.ToListAsync();
 
-            var claimsIdentity = (ClaimsIdentity)this.User.Identity;
-            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            if (claim != null)
+            try
             {
-                model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
+                var claimsIdentity = (ClaimsIdentity)this.User.Identity;
+                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+                if (claim != null)
+                {
+                    model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
+                }
             }
+            catch
+            {
+
+            }
+            
 
             return View(model);
         }
