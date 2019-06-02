@@ -19,8 +19,6 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
     [Area("Admin")]
     public class AvatarController : Controller
     {
-        
-
         private readonly IHostingEnvironment _appEnvironment;
         private readonly ApplicationDbContext _db;
 

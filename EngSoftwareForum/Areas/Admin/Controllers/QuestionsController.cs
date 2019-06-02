@@ -56,11 +56,18 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
             model.ApplicationUser = new ApplicationUser();
 
             //Procura dados do usuario no database
-            var claimsIdentity = (ClaimsIdentity)this.User.Identity;
-            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
-            model.Questions.UserID = model.ApplicationUser.Name;
-            model.Questions.UserKey = model.ApplicationUser.Id;
+            try
+            {
+                var claimsIdentity = (ClaimsIdentity)this.User.Identity;
+                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+                model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
+                model.Questions.UserID = model.ApplicationUser.Name;
+                model.Questions.UserKey = model.ApplicationUser.Id;
+            }
+            catch
+            {
+
+            }
 
             return View(model);
         }
@@ -227,13 +234,18 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
 
             model.RepliesCount = await _db.Replies.ToListAsync();
 
-            //Procura dados do usuario no database
-            var claimsIdentity = (ClaimsIdentity)this.User.Identity;
-            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            if (claim != null)
+            try
             {
-                model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
+                //Procura dados do usuario no database
+                var claimsIdentity = (ClaimsIdentity)this.User.Identity;
+                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+                if (claim != null)
+                {
+                    model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
+                }
             }
+            catch { }
+            
 
             if (id == null)
             {
@@ -271,12 +283,17 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
             model.RepliesLOL = new Replies();
             model.ApplicationUser = new ApplicationUser();
 
-            //Procura dados do usuario no database
-            var claimsIdentity = (ClaimsIdentity)this.User.Identity;
-            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
-            model.RepliesLOL.UserID = model.ApplicationUser.Name;
-            model.RepliesLOL.UserKey = model.ApplicationUser.Id; //adiciona a key do usuario na resposta
+            try
+            {
+                //Procura dados do usuario no database
+                var claimsIdentity = (ClaimsIdentity)this.User.Identity;
+                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+                model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
+                model.RepliesLOL.UserID = model.ApplicationUser.Name;
+                model.RepliesLOL.UserKey = model.ApplicationUser.Id; //adiciona a key do usuario na resposta
+            }
+            catch { }
+            
 
             if (id == null)
             {
@@ -313,31 +330,30 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
             return View(model);
         }
 
-
-
-
-
-
-        
         
         public async Task<IActionResult> UpvoteQuestion(int? id)
         {
             CommonViewModel model = new CommonViewModel();
             model.ApplicationUser = new ApplicationUser();
 
-            //Procura dados do usuario no database
-            var claimsIdentity = (ClaimsIdentity)this.User.Identity;
-            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            if (claim != null)
+            try
             {
-                model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
-            }
+                //Procura dados do usuario no database
+                var claimsIdentity = (ClaimsIdentity)this.User.Identity;
+                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+                if (claim != null)
+                {
+                    model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
+                }
 
-            if (claimsIdentity.IsAuthenticated == false)
-            {
-                return RedirectToAction("Details", new { id });
-            }
+                if (claimsIdentity.IsAuthenticated == false)
+                {
+                    return RedirectToAction("Details", new { id });
+                }
 
+            }
+            catch { }
+            
 
             if (id == null)
             {
@@ -442,19 +458,23 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
             CommonViewModel model = new CommonViewModel();
             model.ApplicationUser = new ApplicationUser();
 
-            //Procura dados do usuario no database
-            var claimsIdentity = (ClaimsIdentity)this.User.Identity;
-            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            if (claim != null)
-            {
-                model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
-            }
 
-            if (claimsIdentity.IsAuthenticated == false)
+            try
             {
-                return RedirectToAction("Details", new { id });
+                //Procura dados do usuario no database
+                var claimsIdentity = (ClaimsIdentity)this.User.Identity;
+                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+                if (claim != null)
+                {
+                    model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
+                }
+
+                if (claimsIdentity.IsAuthenticated == false)
+                {
+                    return RedirectToAction("Details", new { id });
+                }
             }
-         
+            catch { }
 
             if (id == null)
             {
@@ -554,11 +574,6 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
         }
 
 
-
-
-
-
-
         //Gammification Answers
 
         public async Task<IActionResult> UpvoteReplies(int? id)
@@ -566,35 +581,85 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
             CommonViewModel model = new CommonViewModel();
             model.ApplicationUser = new ApplicationUser();
 
-            //Procura dados do usuario no database
-            var claimsIdentity = (ClaimsIdentity)this.User.Identity;
-            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            if (claim != null)
+            try
             {
-                model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
-            }
+                //Procura dados do usuario no database
+                var claimsIdentity = (ClaimsIdentity)this.User.Identity;
+                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+                if (claim != null)
+                {
+                    model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
+                }
 
-            if (id == null)
-            {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
+                if (claimsIdentity.IsAuthenticated == false)
+                {
+                    return RedirectToAction("Details", new { id });
+                }
 
 
-            var currentReply = _db.Replies.Find(id);
-            id = currentReply.QuestionID;
-            if (currentReply == null)
-                return NotFound();
 
-            if (claimsIdentity.IsAuthenticated == false)
-            {
-                return RedirectToAction("Details", new { id });
-            }
 
-            if ((currentReply.UsersUpVoteR == null))
-            {
+                var currentReply = _db.Replies.Find(id);
+                id = currentReply.QuestionID;
+                if (currentReply == null)
+                    return NotFound();
+
+
+
+                if ((currentReply.UsersUpVoteR == null))
+                {
+
+                    currentReply.VoteGR = currentReply.VoteGR + 1;
+
+
+                    if (currentReply.UsersDownVoteR == null)
+                    {
+                        string UsersUpVoteR = currentReply.UsersUpVoteR + ';' + model.ApplicationUser.Name;
+                        currentReply.UsersUpVoteR = UsersUpVoteR;
+                    }
+
+                    else if (currentReply.UsersDownVoteR.Contains(model.ApplicationUser.Name))
+                    {
+                        string nomes_atualizados = "";
+                        var nomes = currentReply.UsersDownVoteR.Split(";");
+                        for (int i = 0; i < nomes.Length; i++)
+                        {
+                            if (nomes[i] == model.ApplicationUser.Name)
+                            {
+                                nomes[i] = "";
+                            }
+
+                            nomes_atualizados = nomes_atualizados + nomes[i] + ";";
+                        }
+
+                        currentReply.UsersDownVoteR = nomes_atualizados;
+
+                    }
+                    else
+                    {
+                        string UsersUpVoteR = currentReply.UsersUpVoteR + ';' + model.ApplicationUser.Name;
+                        currentReply.UsersUpVoteR = UsersUpVoteR;
+                    }
+
+
+                    _db.SaveChanges(); //salva as mudanças na db
+
+                    return RedirectToAction("Details", new { id });
+
+                }
+                else if (currentReply.UsersUpVoteR.Contains(model.ApplicationUser.Name))
+                {
+                    return RedirectToAction("Details", new { id });
+                }
+
+
 
                 currentReply.VoteGR = currentReply.VoteGR + 1;
-
 
                 if (currentReply.UsersDownVoteR == null)
                 {
@@ -625,55 +690,13 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
                     currentReply.UsersUpVoteR = UsersUpVoteR;
                 }
 
-
                 _db.SaveChanges(); //salva as mudanças na db
 
-                return RedirectToAction("Details", new { id });
-
             }
-            else if (currentReply.UsersUpVoteR.Contains(model.ApplicationUser.Name))
-            {
-                return RedirectToAction("Details", new { id });
-            }
-
-
-
-            currentReply.VoteGR = currentReply.VoteGR + 1;
-
-            if (currentReply.UsersDownVoteR == null)
-            {
-                string UsersUpVoteR = currentReply.UsersUpVoteR + ';' + model.ApplicationUser.Name;
-                currentReply.UsersUpVoteR = UsersUpVoteR;
-            }
-
-            else if (currentReply.UsersDownVoteR.Contains(model.ApplicationUser.Name))
-            {
-                string nomes_atualizados = "";
-                var nomes = currentReply.UsersDownVoteR.Split(";");
-                for (int i = 0; i < nomes.Length; i++)
-                {
-                    if (nomes[i] == model.ApplicationUser.Name)
-                    {
-                        nomes[i] = "";
-                    }
-
-                    nomes_atualizados = nomes_atualizados + nomes[i] + ";";
-                }
-
-                currentReply.UsersDownVoteR = nomes_atualizados;
-
-            }
-            else
-            {
-                string UsersUpVoteR = currentReply.UsersUpVoteR + ';' + model.ApplicationUser.Name;
-                currentReply.UsersUpVoteR = UsersUpVoteR;
-            }
-
-            _db.SaveChanges(); //salva as mudanças na db
-
+            catch { }
 
             return RedirectToAction("Details", new { id });
-
+  
         }
 
 
@@ -682,34 +705,81 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
             CommonViewModel model = new CommonViewModel();
             model.ApplicationUser = new ApplicationUser();
 
-            //Procura dados do usuario no database
-            var claimsIdentity = (ClaimsIdentity)this.User.Identity;
-            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            if (claim != null)
+            try
             {
-                model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
-            }
+                //Procura dados do usuario no database
+                var claimsIdentity = (ClaimsIdentity)this.User.Identity;
+                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+                if (claim != null)
+                {
+                    model.ApplicationUser = await _db.ApplicationUser.FindAsync(claim.Value);
+                }
 
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-
-            var currentReply = _db.Replies.Find(id);
-            if (currentReply == null)
-                return NotFound();
-            id = currentReply.QuestionID;
-
-
-            if (claimsIdentity.IsAuthenticated == false)
-            {
-                return RedirectToAction("Details", new { id });
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
 
-            if ((currentReply.UsersDownVoteR == null))
-            {
+                var currentReply = _db.Replies.Find(id);
+                if (currentReply == null)
+                    return NotFound();
+                id = currentReply.QuestionID;
+
+
+                if (claimsIdentity.IsAuthenticated == false)
+                {
+                    return RedirectToAction("Details", new { id });
+                }
+
+
+                if ((currentReply.UsersDownVoteR == null))
+                {
+
+                    currentReply.VoteGR = currentReply.VoteGR - 1;
+
+
+                    if (currentReply.UsersUpVoteR == null)
+                    {
+                        string UsersDownVoteR = currentReply.UsersDownVoteR + ';' + model.ApplicationUser.Name;
+                        currentReply.UsersDownVoteR = UsersDownVoteR;
+                    }
+
+                    else if (currentReply.UsersUpVoteR.Contains(model.ApplicationUser.Name))
+                    {
+                        string nomes_atualizados = "";
+                        var nomes = currentReply.UsersUpVoteR.Split(";");
+                        for (int i = 0; i < nomes.Length; i++)
+                        {
+                            if (nomes[i] == model.ApplicationUser.Name)
+                            {
+                                nomes[i] = "";
+                            }
+
+                            nomes_atualizados = nomes_atualizados + nomes[i] + ";";
+                        }
+
+                        currentReply.UsersUpVoteR = nomes_atualizados;
+                    }
+                    else
+                    {
+                        string UsersDownVoteR = currentReply.UsersDownVoteR + ';' + model.ApplicationUser.Name;
+                        currentReply.UsersDownVoteR = UsersDownVoteR;
+                    }
+
+
+                    _db.SaveChanges(); //salva as mudanças na db
+
+                    return RedirectToAction("Details", new { id });
+
+                }
+                else if (currentReply.UsersDownVoteR.Contains(model.ApplicationUser.Name))
+                {
+                    return RedirectToAction("Details", new { id });
+                }
+
+
+
 
                 currentReply.VoteGR = currentReply.VoteGR - 1;
 
@@ -742,54 +812,10 @@ namespace EngSoftwareForum.Areas.Admin.Controllers
                     currentReply.UsersDownVoteR = UsersDownVoteR;
                 }
 
-
                 _db.SaveChanges(); //salva as mudanças na db
 
-                return RedirectToAction("Details", new { id });
-
             }
-            else if (currentReply.UsersDownVoteR.Contains(model.ApplicationUser.Name))
-            {
-                return RedirectToAction("Details", new { id });
-            }
-
-
-
-
-            currentReply.VoteGR = currentReply.VoteGR - 1;
-
-
-            if (currentReply.UsersUpVoteR == null)
-            {
-                string UsersDownVoteR = currentReply.UsersDownVoteR + ';' + model.ApplicationUser.Name;
-                currentReply.UsersDownVoteR = UsersDownVoteR;
-            }
-
-            else if (currentReply.UsersUpVoteR.Contains(model.ApplicationUser.Name))
-            {
-                string nomes_atualizados = "";
-                var nomes = currentReply.UsersUpVoteR.Split(";");
-                for (int i = 0; i < nomes.Length; i++)
-                {
-                    if (nomes[i] == model.ApplicationUser.Name)
-                    {
-                        nomes[i] = "";
-                    }
-
-                    nomes_atualizados = nomes_atualizados + nomes[i] + ";";
-                }
-
-                currentReply.UsersUpVoteR = nomes_atualizados;
-            }
-            else
-            {
-                string UsersDownVoteR = currentReply.UsersDownVoteR + ';' + model.ApplicationUser.Name;
-                currentReply.UsersDownVoteR = UsersDownVoteR;
-            }
-
-            _db.SaveChanges(); //salva as mudanças na db
-
-
+            catch { }
 
             return RedirectToAction("Details", new { id });
 
