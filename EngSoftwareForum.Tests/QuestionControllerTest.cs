@@ -30,7 +30,7 @@ namespace EngSoftwareForum
             var result = await controller.Index();
 
             // Assert
-            Assert.IsInstanceOfType(result, typeof(ViewResult));
+            Assert.IsInstanceOfType(result, typeof(int));
         }
     }
 }
